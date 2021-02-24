@@ -9,7 +9,7 @@ jobs:
     steps:
       - checkout
       - heroku/install
-      - heroku/release-docker-image
+      - heroku/push-docker-image
   test:
     executor: node/default
     steps:
@@ -30,15 +30,8 @@ jobs:
       - checkout
       - heroku/install
       - run:
-          command: heroku login
+          command: heroku container:login
       - heroku/push-docker-image
-  whoami:
-    executor: heroku/default
-    steps:
-      - checkout
-      - heroku/install
-      - heroku/check-authentication:
-          print-whoami: true
 workflows:
   lint-and-test:
     jobs:
@@ -46,12 +39,5 @@ workflows:
       - test
   publish:
     jobs:
-      - whoami
-      - build
-      - deploy:
-          requires: 
-            - build
-          filters:
-            branches:
-              only: main
+      - heroku/push-docker-image
 
