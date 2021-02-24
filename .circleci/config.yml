@@ -25,13 +25,11 @@ jobs:
       - run:
           command: npm run lint
   build:
-    executor: heroku/default
+    executor: docker/default
     steps:
       - checkout
-      - heroku/install
-      - run:
-          command: heroku container:login
-      - heroku/push-docker-image
+      - docker/build:
+          image: $HEROKU_APP_NAME
 workflows:
   lint-and-test:
     jobs:
@@ -39,5 +37,11 @@ workflows:
       - test
   publish:
     jobs:
-      - heroku/push-docker-image
+      - build
+      - heroku/push-docker-image:
+          requires:
+            - build
+          filters:
+            branches:
+              only: main
 
