@@ -13,7 +13,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start $PORT",
+    "start": "next start -p $PORT",
     "lint": "prettier --write ."
   },
   "dependencies": {
