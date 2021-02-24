@@ -7,7 +7,9 @@ jobs:
   deploy:
     executor: heroku/default
     steps:
-      - heroku/check-authentication
+      - checkout
+      - heroku/install
+      - heroku/release-docker-image
   test:
     executor: node/default
     steps:
