@@ -37,7 +37,10 @@ workflows:
       - test
   publish:
     jobs:
-      - build
+      - build:
+          filters:
+            branches:
+              only: main
       - heroku/push-docker-image:
           requires:
             - build
