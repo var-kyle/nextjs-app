@@ -1,10 +1,13 @@
+version: 2.1
+orbs:  
+  node: circleci/node@3.0.0
+  heroku: circleci/heroku@1.2.5
+  docker: circleci/docker@1.5.0
 jobs:
   deploy:
     executor: heroku/default
     steps:
-      - checkout
-      - heroku/install
-      - heroku/release-docker-image
+      - heroku/check-authentication
   test:
     executor: node/default
     steps:
@@ -25,11 +28,6 @@ jobs:
       - checkout
       - heroku/install
       - heroku/push-docker-image
-orbs:
-  node: circleci/node@3.0.0
-  heroku: circleci/heroku@1.2.5
-  docker: circleci/docker@1.5.0
-version: 2.1
 workflows:
   lint-and-test:
     jobs:
@@ -37,10 +35,4 @@ workflows:
       - test
   publish:
     jobs:
-      - build
-      - deploy:
-          requires:
-            - build
-          filters:
-            branches:
-              only: main
+      - deploy
