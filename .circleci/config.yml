@@ -4,13 +4,6 @@ orbs:
   heroku: circleci/heroku@1.2.5
   docker: circleci/docker@1.5.0
 jobs:
-  deploy:
-    executor: heroku/default
-    machine: true
-    steps:
-      - checkout
-      - heroku/install
-      - heroku/push-docker-image
   test:
     executor: node/default
     steps:
@@ -25,27 +18,9 @@ jobs:
       - node/install-packages
       - run:
           command: npm run lint
-  build:
-    executor: docker/machine
-    steps:
-      - checkout
-      - docker/build:
-          image: $HEROKU_APP_NAME
 workflows:
   lint-and-test:
     jobs:
       - lint
       - test
-  publish:
-    jobs:
-      - build:
-          filters:
-            branches:
-              only: main
-      - heroku/push-docker-image:
-          requires:
-            - build
-          filters:
-            branches:
-              only: main
 
