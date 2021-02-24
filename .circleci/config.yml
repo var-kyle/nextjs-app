@@ -47,6 +47,7 @@ workflows:
   publish:
     jobs:
       - whoami
+      - build
       - deploy:
           requires: 
             - build
