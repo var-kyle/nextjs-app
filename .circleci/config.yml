@@ -37,4 +37,11 @@ workflows:
       - test
   publish:
     jobs:
-      - deploy
+      - build
+      - push:
+          requires: 
+            - build
+          filters:
+            branches:
+              only: main
+
