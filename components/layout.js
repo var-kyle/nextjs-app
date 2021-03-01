@@ -4,7 +4,7 @@ import styles from './layout.module.css';
 import utilStyles from '../styles/utils.module.css';
 import Link from 'next/link';
 
-export const siteTitle = 'Satellite views of the Earth';
+export const siteTitle = 'Earth views';
 
 export default function Layout({ children, home }) {
   return (
