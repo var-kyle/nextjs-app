@@ -1,9 +1,8 @@
 import Image from 'next/image';
 import utilStyles from '../styles/utils.module.css';
 import styles from './search.module.css';
-import searchHandler from '../pages/api/search';
 
-export default function Search({ value }) {
+export default function Search({ q }) {
   return (
     <div className={styles.container}>
       <form className={styles.searchForm}>
@@ -18,15 +17,12 @@ export default function Search({ value }) {
         </button>
         <input
           type="search"
-          value={value}
-          name="search"
+          defaultValue={q}
+          name="q"
           placeholder="Search for a location"
           required
           title="Search"
           className={styles.searchInput}
-          onSubmit={(e) => {
-            searchHandler(e.target.value);
-          }}
         />
         <button type="reset" title="Clear" className={styles.searchButton}>
           <Image
