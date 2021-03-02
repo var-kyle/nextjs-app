@@ -22,7 +22,7 @@ export async function getServerSideProps(context) {
       bestMatch: response ? response.bestMatch : '',
       allMatches: response ? response.allMatches : '',
       imgUrl: response
-        ? `${process.env.NASA_API_BASE_URL}?api_key=${process.env.NASA_API_KEY}&lat=${response.bestMatch.latLng.lat}&lon=${response.bestMatch.latLng.lng}&date=2014-02-01`
+        ? `${process.env.NASA_API_BASE_URL}?api_key=${process.env.NASA_API_KEY}&lat=${response.bestMatch.latLng.lat}&lon=${response.bestMatch.latLng.lng}&date=2014-02-01&dim=0.5`
         : '',
       imgAlt: response ? `Satellite image of ${response.locationName}` : '',
     },
