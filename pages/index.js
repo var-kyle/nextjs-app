@@ -36,7 +36,6 @@ export default function Home({
   imgUrl,
   imgAlt,
 }) {
-  console.log(imgUrl);
   return (
     <Layout home>
       <Head>
