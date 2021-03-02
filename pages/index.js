@@ -41,12 +41,14 @@ export default function Home({
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
+      <section
+        className={`${utilStyles.headingMd} ${utilStyles.padding1px} ${utilStyles.maxWidth36} ${utilStyles.centered}`}
+      >
         <Search q={locationName} />
       </section>
-      <section className={`${utilStyles.padding1px}`}>
+      <section className={`${utilStyles.imageSection}`}>
         {imgUrl ? (
-          <Image src={imgUrl} alt={imgAlt} width="1000px" height="800px" />
+          <Image src={imgUrl} alt={imgAlt} width="1280px" height="960px" />
         ) : (
           ''
         )}
