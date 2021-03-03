@@ -24,7 +24,7 @@ export default function Search({ q }) {
           title="Search"
           className={styles.searchInput}
         />
-        <button type="reset" title="Clear" className={styles.searchButton}>
+        {/* <button type="reset" title="Clear" className={styles.searchButton}>
           <Image
             src="/images/clear.png"
             className={utilStyles.borderCircle}
@@ -32,7 +32,7 @@ export default function Search({ q }) {
             width={18}
             alt="Clear search bar"
           />
-        </button>
+        </button> */}
       </form>
     </div>
   );

@@ -63,3 +63,12 @@
 .centered {
   margin: 0 auto;
 }
+
+.credit {
+  font-size: small;
+  color: #fff;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  text-shadow: #000;
+}
