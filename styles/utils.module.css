@@ -50,3 +50,25 @@
 .lightText {
   color: #666;
 }
+
+.imageSection {
+  margin: 1rem auto;
+  text-align: center;
+}
+
+.maxWidth36 {
+  max-width: 36rem;
+}
+
+.centered {
+  margin: 0 auto;
+}
+
+.credit {
+  font-size: small;
+  color: #fff;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  text-shadow: #000;
+}
