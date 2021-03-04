@@ -48,22 +48,9 @@ export default function Home({
       </section>
       <section className={`${utilStyles.imageSection}`}>
         {imgUrl ? (
-          <Image src={imgUrl} alt={imgAlt} width={1280} height={960} />
+          <Image src={imgUrl} alt={imgAlt} width={960} height={720} />
         ) : (
           ''
-          /* <div>
-            <iframe
-              src="https://giphy.com/embed/8FoLIrNT2jK0evs6bG"
-              width="480"
-              height="480"
-              frameBorder="0"
-              class="giphy-embed"
-              allowFullScreen
-            ></iframe>
-            <p>
-              <a href="https://giphy.com/gifs/8FoLIrNT2jK0evs6bG">via GIPHY</a>
-            </p>
-          </div> */
         )}
       </section>
       <div className={`${utilStyles.credit}`}>
