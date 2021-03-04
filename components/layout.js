@@ -1,12 +1,10 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import styles from './layout.module.css';
 import utilStyles from '../styles/utils.module.css';
-import Link from 'next/link';
 
 export const siteTitle = 'Earth';
 
-export default function Layout({ children, home }) {
+export default function Layout({ children }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -15,26 +13,15 @@ export default function Layout({ children, home }) {
           name="description"
           content="Find your next satellite image of the Earth"
         />
-        <meta
-          property="og:image"
-          content={`https://og-image.vercel.app/${encodeURI(
-            siteTitle
-          )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
-        />
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <header className={styles.header}>
-        <h1 className={utilStyles.heading2Xl}>{siteTitle}</h1>
+        <h1 className={utilStyles.heading2Xl} data-testid="heading">
+          {siteTitle}
+        </h1>
       </header>
-      <main>{children}</main>
-      {!home && (
-        <div className={styles.backToHome}>
-          <Link href="/">
-            <a>← Back to home</a>
-          </Link>
-        </div>
-      )}
+      <main data-testid="main">{children}</main>
     </div>
   );
 }

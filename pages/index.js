@@ -48,11 +48,36 @@ export default function Home({
       </section>
       <section className={`${utilStyles.imageSection}`}>
         {imgUrl ? (
-          <Image src={imgUrl} alt={imgAlt} width="1280px" height="960px" />
+          <Image src={imgUrl} alt={imgAlt} width={1280} height={960} />
         ) : (
           ''
+          /* <div>
+            <iframe
+              src="https://giphy.com/embed/8FoLIrNT2jK0evs6bG"
+              width="480"
+              height="480"
+              frameBorder="0"
+              class="giphy-embed"
+              allowFullScreen
+            ></iframe>
+            <p>
+              <a href="https://giphy.com/gifs/8FoLIrNT2jK0evs6bG">via GIPHY</a>
+            </p>
+          </div> */
         )}
       </section>
+      <div className={`${utilStyles.credit}`}>
+        <span>
+          Background image by{' '}
+          <a href="https://unsplash.com/@actionvance?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">
+            ActionVance
+          </a>{' '}
+          on{' '}
+          <a href="https://unsplash.com/s/photos/earth?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">
+            Unsplash
+          </a>
+        </span>
+      </div>
     </Layout>
   );
 }
