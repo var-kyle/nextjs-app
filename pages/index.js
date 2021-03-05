@@ -7,6 +7,7 @@ import { getGeocodedResults } from '../lib/geocode';
 
 export async function getServerSideProps(context) {
   const search = context.query.q;
+  const date = context.query.date ?? '2020-01-01';
   let response;
 
   if (search) {
@@ -22,9 +23,10 @@ export async function getServerSideProps(context) {
       bestMatch: response ? response.bestMatch : '',
       allMatches: response ? response.allMatches : '',
       imgUrl: response
-        ? `${process.env.NASA_API_BASE_URL}?api_key=${process.env.NASA_API_KEY}&lat=${response.bestMatch.latLng.lat}&lon=${response.bestMatch.latLng.lng}&date=2014-02-01&dim=0.5`
+        ? `${process.env.NASA_API_BASE_URL}?api_key=${process.env.NASA_API_KEY}&lat=${response.bestMatch.latLng.lat}&lon=${response.bestMatch.latLng.lng}&date=${date}&dim=0.5`
         : '',
       imgAlt: response ? `Satellite image of ${response.locationName}` : '',
+      date: date,
     },
   };
 }
@@ -35,7 +37,9 @@ export default function Home({
   allMatches,
   imgUrl,
   imgAlt,
+  date,
 }) {
+  //console.log(`query: ${locationName}\ndate: ${date}`);
   return (
     <Layout home>
       <Head>
@@ -44,7 +48,7 @@ export default function Home({
       <section
         className={`${utilStyles.headingMd} ${utilStyles.padding1px} ${utilStyles.maxWidth36} ${utilStyles.centered}`}
       >
-        <Search q={locationName} />
+        <Search q={locationName} date={date} />
       </section>
       <section className={`${utilStyles.imageSection}`}>
         {imgUrl ? (

@@ -30,3 +30,12 @@
   overflow: visible;
   border-radius: 1rem;
 }
+
+.searchContainer {
+  width: 100%;
+}
+
+.dateContainer {
+  margin: auto;
+  width: 40%;
+}

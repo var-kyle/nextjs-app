@@ -1,31 +1,42 @@
 import Image from 'next/image';
+import Date from './date';
 import utilStyles from '../styles/utils.module.css';
 import styles from './search.module.css';
 
-export default function Search({ q }) {
+export default function Search({ q, date }) {
+  console.log(`query: ${q}\ndate: ${date}`);
   return (
     <div className={styles.container}>
       <form className={styles.searchForm} data-testid="search-form">
-        <button type="submit" title="Search" className={styles.searchButton}>
+        <button
+          type="submit"
+          title="Search"
+          className={`${styles.searchButton}`}
+        >
           <Image
             data-testid="search-image"
             src="/images/search.png"
-            className={utilStyles.borderCircle}
+            className={`${utilStyles.borderCircle}`}
             height={18}
             width={18}
             alt="Search images"
           />
         </button>
-        <input
-          data-testid="search-input"
-          type="search"
-          defaultValue={q}
-          name="q"
-          placeholder="Search for a location"
-          required
-          title="Search"
-          className={styles.searchInput}
-        />
+        <div className={`${styles.searchContainer}`}>
+          <input
+            data-testid="search-input"
+            type="search"
+            defaultValue={q}
+            name="q"
+            placeholder="Search for a location"
+            required
+            title="Search"
+            className={`${styles.searchInput}`}
+          />
+        </div>
+        <div className={`${styles.dateContainer}`}>
+          <Date dateString={date} />
+        </div>
       </form>
     </div>
   );
