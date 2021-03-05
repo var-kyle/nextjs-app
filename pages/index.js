@@ -7,7 +7,7 @@ import { getGeocodedResults } from '../lib/geocode';
 
 export async function getServerSideProps(context) {
   const search = context.query.q;
-  const date = context.query.date ?? '2020-01-01';
+  const date = context.query.date;
   let response;
 
   if (search) {
@@ -26,7 +26,7 @@ export async function getServerSideProps(context) {
         ? `${process.env.NASA_API_BASE_URL}?api_key=${process.env.NASA_API_KEY}&lat=${response.bestMatch.latLng.lat}&lon=${response.bestMatch.latLng.lng}&date=${date}&dim=0.5`
         : '',
       imgAlt: response ? `Satellite image of ${response.locationName}` : '',
-      date: date,
+      date: date ?? '',
     },
   };
 }
