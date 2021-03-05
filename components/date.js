@@ -1,6 +1,15 @@
-import { parseISO, format } from 'date-fns';
+import styles from './date.module.css';
 
 export default function Date({ dateString }) {
-  const date = parseISO(dateString);
-  return <time dateTime={dateString}>{format(date, 'yyyy-MM-d')}</time>;
+  return (
+    <>
+      <input
+        type="date"
+        name="date"
+        defaultValue={dateString}
+        title="Search date"
+        className={`${styles.dateInput}`}
+      />
+    </>
+  );
 }
