@@ -4,7 +4,6 @@ import utilStyles from '../styles/utils.module.css';
 import styles from './search.module.css';
 
 export default function Search({ q, date }) {
-  console.log(`query: ${q}\ndate: ${date}`);
   return (
     <div className={styles.container}>
       <form className={styles.searchForm} data-testid="search-form">
