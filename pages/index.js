@@ -17,7 +17,6 @@ export async function getServerSideProps(context) {
   // the api used for imgUrl says if date is not provided, it will get the closest to today's date
   // but it doesn't, so I'm just adding a date for now.
   // will add a datepicker option in the future
-  // test test
   return {
     props: {
       locationName: response ? response.locationName : '',
